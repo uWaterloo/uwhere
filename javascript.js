@@ -28,7 +28,7 @@ angular.module('portalApp')
     ];
 
     var getValues = function ($scope){
-      console.dir($scope.selectData.selectedOption);
+      console.dir($scope.selectData.selectedOption.value());
     };
 
     $scope.$watch('selectData.selectedOption', function(newValue, oldValue){
