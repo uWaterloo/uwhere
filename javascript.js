@@ -26,11 +26,15 @@ angular.module('portalApp')
         {id: '5', name: 'Changing Stations', table: 'changingStations'}
 
     ];
-	$http.get('/Develop/GetProxy?url=https://api.uwaterloo.ca/v2/buildings/list.{json}')
-	.success(function(data){    
-    	// Code to run on success
-    	console.dir(data);
+    $scope.portalHelpers.invokeServerFunction('privDataRead').then(function (result) {
+    	console.log('priv read result',result);
+        $http.get('/Develop/GetProxy?url=https://api.uwaterloo.ca/v2/buildings/list.{json}')
+		.success(function(data){    
+    		// Code to run on success
+    		console.dir(data);
+		});
 	});
+	
 
 
 
