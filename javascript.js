@@ -26,7 +26,13 @@ angular.module('portalApp')
         {id: '5', name: 'Changing Stations', table: 'changingStations'}
 
     ];
-
+	
+    var distance = function(source_long, source_lat, dest_long, dest_lat){
+    	var dist_hor = pow(source_long - dest_long, 2);
+        var dist_vert = pow(source_lat - dest_lat, 2);
+        return sqrt(dist_hor + dist_vert);
+    };
+    
     var getValues = function (optionType){
       console.dir(optionType);
       $scope.portalHelpers.invokeServerFunction('getLocations', {
