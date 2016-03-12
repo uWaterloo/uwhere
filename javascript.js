@@ -24,28 +24,28 @@ angular.module('portalApp')
     ];
 
     $scope.$watch('selectData.selectedOption', function(newValue, oldValue){
-      console.dir('New Value');
-      console.dir(newValue);
-      console.dir('Old Value');
-      console.dir(oldValue);
+      if(!newValue) {
+        console.dir('Not Yet Selected!');
+        return;
+      }
       switch(newValue.id) {
-        case 1:
+        case '1':
           console.dir('Gender Neutral');
           break;
-        case 2:
+        case '2':
           console.dir('Staplers');
           break;
-        case 3:
+        case '3':
           console.dir('Printers');
           break;
-        case 4:
+        case '4':
           console.dir('Scanners');
           break;
-        case 5:
+        case '5':
           console.dir('Changin Stations');
           break;
         default:
-          console.dir('Not Selected');
+          console.error('No ID!');
       }
     });
 
