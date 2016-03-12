@@ -27,8 +27,8 @@ angular.module('portalApp')
 
     ];
 
-    var getValues = function ($scope){
-      console.dir($scope.selectData.selectedOption.value());
+    var getValues = function (optionType){
+      console.dir(optionsType);
     };
 
     $scope.$watch('selectData.selectedOption', function(newValue, oldValue){
@@ -37,7 +37,7 @@ angular.module('portalApp')
         return;
       }
 
-      getValues();
+      getValues(newValue);
       /*switch(newValue.id) {
         case '1':
           console.dir('Gender Neutral');
