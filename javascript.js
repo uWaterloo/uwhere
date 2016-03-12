@@ -1,5 +1,4 @@
 angular.module('portalApp')
-    //Tomas Sucks
     // Widget controller - runs every time widget is shown
     .controller('uwhereCtrl', ['$scope', '$http', '$q', 'uwhereFactory', function($scope, $http, $q, uwhereFactory) {
 
