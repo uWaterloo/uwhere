@@ -16,6 +16,8 @@ angular.module('portalApp')
 
 
     $scope.selectData = {};
+    $scope.resultList = {};
+    $scope.resultList.title = 'No Results';
     $scope.selectData.availableOptions = [
         {id: '1', name: 'Gender Neutral Washrooms', table: 'gNeutralBathrooms'},
         {id: '2', name: 'Staplers', table: 'staplers'},
@@ -24,7 +26,7 @@ angular.module('portalApp')
         {id: '5', name: 'Changing Stations', table: 'changingStations'}
 
     ];
-
+	
 
 
     $scope.$watch('selectData.selectedOption', function(newValue, oldValue){
@@ -35,7 +37,8 @@ angular.module('portalApp')
       switch(newValue.id) {
         case '1':
           console.dir('Gender Neutral');
-          $scope.resultList.value.title = 'Gener Neutral Washrooms';
+          $scope.resultList.title = 'Gener Neutral Washrooms';
+          $scope.portalHelpers.showView('results.html', 2);
           break;
         case '2':
           console.dir('Staplers');
