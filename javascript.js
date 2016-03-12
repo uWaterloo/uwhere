@@ -29,6 +29,12 @@ angular.module('portalApp')
 
     var getValues = function (optionType){
       console.dir(optionType);
+      $scope.portalHelpers.invokeServerFunction('getLocations', {
+        value: optionType.table
+      }).then(function(result) {
+          console.dir(result);
+        }
+      );
     };
 
     $scope.$watch('selectData.selectedOption', function(newValue, oldValue){
