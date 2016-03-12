@@ -26,24 +26,32 @@ angular.module('portalApp')
         {id: '5', name: 'Changing Stations', table: 'changingStations'}
 
     ];
-    $scope.portalHelpers.invokeServerFunction('privDataRead').then(function (result) {
-    	console.log('priv read result',result);
-        $http.get('/Develop/GetProxy?url=https://api.uwaterloo.ca/v2/buildings/list.{json}')
-		.success(function(data){    
-    		// Code to run on success
-    		console.dir(data);
-		});
-	});
-	
 
+    var distance = function(source_long, source_lat, dest_long, dest_lat){
+    	var dist_hor = pow(source_long - dest_long, 2);
+        var dist_vert = pow(source_lat - dest_lat, 2);
+        return sqrt(dist_hor + dist_vert);
+    };
 
+    var getValues = function (optionType){
+      console.dir(optionType);
+      $scope.portalHelpers.invokeServerFunction('getLocations', {
+        value: optionType.table
+      }).then(function(result) {
+          console.dir(result);
+          $scope.resultList = result;
+        }
+      );
+    };
 
     $scope.$watch('selectData.selectedOption', function(newValue, oldValue){
       if(!newValue) {
         console.dir('Not Yet Selected!');
         return;
       }
-      switch(newValue.id) {
+
+      getValues(newValue);
+      /*switch(newValue.id) {
         case '1':
           console.dir('Gender Neutral');
           $scope.resultList.title = 'Gener Neutral Washrooms';
@@ -62,7 +70,7 @@ angular.module('portalApp')
           break;
         default:
           console.error('No ID!');
-      }
+      }*/
     });
 
     // initialize the service

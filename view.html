@@ -6,7 +6,15 @@
         </widget-row>
     <widget-row>
             <widget-cell>
-                <select name="mySelect" id="mySelect"
+                <select name="selectBuilding" id="selectBuilding"
+                  ng-options="option.name for option in selectData.availableOptions track by option.id"
+                  ng-model="selectData.selectedOption"></select>
+            </widget-cell>
+        </widget-row>
+
+    <widget-row>
+            <widget-cell>
+                <select name="selectToFind" id="selectToFind"
                   ng-options="option.name for option in selectData.availableOptions track by option.id"
                   ng-model="selectData.selectedOption"></select>
             </widget-cell>
@@ -15,9 +23,10 @@
     <widget-row>
         <h2>Results</h2>
 
-        <widget-list list="item in selectData.availableOptions" show-items="5">
+        <widget-list list="item in resultList" show-items="5">
             <widget-row>
-                <widget-cell dill>{{item.name}}</widget-cell>
+                <widget-cell fill>{{item.buildingName}}</widget-cell>
+                <widget-cell fill>{{item.roomNumber}}</widget-cell>
             </widget-row>
         </widget-list>
     </widget-row>
