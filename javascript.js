@@ -18,7 +18,8 @@ angular.module('portalApp')
         {id: '1', name: 'Gender Neutral Washrooms'},
         {id: '2', name: 'Staplers'},
         {id: '3', name: 'Printers'},
-        {id: '4', name: 'Scanners'}
+        {id: '4', name: 'Scanners'},
+        {id: '5', name: 'Changing Stations'}
         
     ];
 
