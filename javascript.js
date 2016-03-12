@@ -18,6 +18,7 @@ angular.module('portalApp')
         $scope.selectData = {};
         $scope.resultList = {};
         $scope.printerList = {};
+        $scope.atmList = {};
         $scope.resultList.title = 'No Results';
         $scope.selectData.availableOptions = [{
                 id: '1',
@@ -39,6 +40,10 @@ angular.module('portalApp')
                 id: '5',
                 name: 'Changing Stations',
                 table: 'changingStations'
+            }, {
+             	id: '6',
+                name: 'ATM',
+                table: 'atms'
             }
 
         ];
@@ -70,18 +75,31 @@ angular.module('portalApp')
                             .success(function(result) {
                                 // Handle result
                                 console.dir(result);
-                                $scope.printerList = result;
+                                $scope.printerList = result.data;
                             	$scope.portalHelpers.showView('printerView.html', 2)
                             });
                     });
-            } else {
+            } else if (optionType.id == '6') {
+                $scope.portalHelpers.invokeServerFunction('privDataRead')
+                    .then(function(apiKey) {
+                        console.log('priv read result', apiKey);
+                        // http.get FUNCTION
+                        $http.get('/Develop/GetProxy?url=https://api.uwaterloo.ca/v2/poi/atms.json?key=' + apiKey)
+                            .success(function(result) {
+                                // Handle result
+                                console.dir(result);
+                                $scope.atmList = result.data;
+                            	$scope.portalHelpers.showView('atmView.html', 2)
+                            });
+                    });
+            }else {
                 $scope.portalHelpers.invokeServerFunction('getLocations', {
                     value: optionType.table
                 }).then(function(result) {
                     console.dir(result);
                     $scope.resultList = result;
                 });
-            }
+            } 
         };
 
         $scope.$watch('selectData.selectedOption', function(newValue, oldValue) {
