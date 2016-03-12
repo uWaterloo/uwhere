@@ -12,14 +12,15 @@
             </widget-cell>
         </widget-row>
 
-    <widget-display-reults
-      label="Results">
-        <widget-list list="item in searchResults" show-items="5">
+    <widget-row>
+        <h2>Results</h2>
+
+        <widget-list list="item in selectData.availableOptions" show-items="5">
             <widget-row>
-                <widget-cell dill>{{item.title}}</widget-cell>
+                <widget-cell dill>{{item.name}}</widget-cell>
             </widget-row>
         </widget-list>
-    </widget-display-result>
+    </widget-row>
 
 </script>
 
