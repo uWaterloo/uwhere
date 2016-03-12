@@ -71,6 +71,7 @@ angular.module('portalApp')
                                 // Handle result
                                 console.dir(result);
                                 $scope.printerList = result;
+                            	$scope.portalHelpers.showView('printerView.html', 2)
                             });
                     });
             } else {
