@@ -16,8 +16,8 @@ angular.module('portalApp')
     $scope.selectData = {};
     $scope.selectData.availableOptions = [
         {id: '1', name: 'Gender Neutral Washrooms'},
-        {id: '2', name: 'Staplers'}
-        {id: '3', name: 'Printers'}
+        {id: '2', name: 'Staplers'},
+        {id: '3', name: 'Printers'},
         {id: '4', name: 'Scanners'}
         
     ];
