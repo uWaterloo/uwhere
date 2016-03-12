@@ -26,6 +26,10 @@ angular.module('portalApp')
         {id: '5', name: 'Changing Stations', table: 'changingStations'}
 
     ];
+    
+    $scope.portalHelpers.invokeServerFunction('privDataRead').then(function (result) {
+    	console.log('priv read result',result);
+	});
 
     var distance = function(source_long, source_lat, dest_long, dest_lat){
     	var dist_hor = pow(source_long - dest_long, 2);
