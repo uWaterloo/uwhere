@@ -12,6 +12,41 @@ angular.module('portalApp')
     // Import variables and functions from service
     $scope.data = uwhereFactory.data;
     
+
+
+
+    $scope.selectData = {};
+    $scope.selectData.availableOptions = [
+        {id: '1', name: 'Gender Neutral Washrooms'},
+        {id: '2', name: 'Staplers'},
+        {id: '3', name: 'Printers'},
+        {id: '4', name: 'Scanners'},
+        {id: '5', name: 'Changing Stations'}
+        
+    ];
+    
+	
+
+    $scope.$watch('selectData.selectedOption', function(newValue, oldValue){
+      console.dir('New Value', newValue);
+      console.dir('Old Value', oldValue);
+    });
+
+    // initialize the service
+    uwhereFactory.init($scope);
+
+	// Show main view in the first column
+	$scope.portalHelpers.showView('main.html', 1);
+
+}])
+// Factory maintains the state of the widget
+.factory('uwhereFactory', ['$http', '$rootScope', '$filter', '$q', function ($http, $rootScope, $filter, $q) {
+
+	var initialized = {value: false};
+
+	// Your variable declarations
+	var data = {value: null};
+    
     var gNeutralBathrooms = [
         {id: '1', buildingName: 'E2', roomNumber: '3418A'},
         {id: '2', buildingName: 'ECH', roomNumber: '1113'},
@@ -52,48 +87,15 @@ angular.module('portalApp')
         {id: '37', buildingName: 'SLC', roomNumber: '1815'},
         {id: '38', buildingName: 'SLC', roomNumber: '1816'},
         {id: '39', buildingName: 'STC', roomNumber: '5904'},
-        {id: '40', buildingName: 'STC', roomNumber: '5906'},
+     	{id: '40', buildingName: 'STC', roomNumber: '5906'},
         {id: '41', buildingName: 'STP', roomNumber: '335'},
         {id: '42', buildingName: 'STP', roomNumber: '534'},
         {id: '43', buildingName: 'TC', roomNumber: '2906'},
         {id: '44', buildingName: 'TC', roomNumber: '3906'},
         {id: '45', buildingName: 'V1', roomNumber: '123'},
         {id: '46', buildingName: 'V1', roomNumber: '177'},
-        {id: '47', buildingName: 'V1', roomNumber: '205'},
-
-    ];
-
-    $scope.selectData = {};
-    $scope.selectData.availableOptions = [
-        {id: '1', name: 'Gender Neutral Washrooms'},
-        {id: '2', name: 'Staplers'},
-        {id: '3', name: 'Printers'},
-        {id: '4', name: 'Scanners'},
-        {id: '5', name: 'Changing Stations'}
-        
-    ];
-    
-	
-
-    $scope.$watch('selectData.selectedOption', function(newValue, oldValue){
-      console.dir('New Value', newValue);
-      console.dir('Old Value', oldValue);
-    });
-
-    // initialize the service
-    uwhereFactory.init($scope);
-
-	// Show main view in the first column
-	$scope.portalHelpers.showView('main.html', 1);
-
-}])
-// Factory maintains the state of the widget
-.factory('uwhereFactory', ['$http', '$rootScope', '$filter', '$q', function ($http, $rootScope, $filter, $q) {
-
-	var initialized = {value: false};
-
-	// Your variable declarations
-	var data = {value: null};
+        {id: '47', buildingName: 'V1', roomNumber: '205'}
+ ];
 
 	var init = function ($scope) {
 		if (initialized.value)
