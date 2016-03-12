@@ -11,7 +11,7 @@ angular.module('portalApp')
 
     // Import variables and functions from service
     $scope.data = uwhereFactory.data;
-    
+
 
     $scope.selectData = {};
     $scope.selectData.availableOptions = [
@@ -20,12 +20,14 @@ angular.module('portalApp')
         {id: '3', name: 'Printers'},
         {id: '4', name: 'Scanners'},
         {id: '5', name: 'Changing Stations'}
-        
+
     ];
 
     $scope.$watch('selectData.selectedOption', function(newValue, oldValue){
-      console.dir('New Value', newValue);
-      console.dir('Old Value', oldValue);
+      console.dir('New Value');
+      console.dir(newValue);
+      console.dir('Old Value');
+      console.dir(oldValue);
     });
 
     // initialize the service
