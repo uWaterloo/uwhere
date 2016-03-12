@@ -12,7 +12,8 @@
             </widget-cell>
         </widget-row>
 
-    <widget-display-reults>
+    <widget-display-reults
+      label="Results">
         <widget-list list="item in searchResults" show-items="5">
             <widget-row>
                 <widget-cell dill>{{item.title}}</widget-cell>
@@ -29,21 +30,4 @@
             Menu button
         </a>
     </li>
-</script>
-
-<!-- VIEW FOR THE RESULT LIST -->
-<script type="text/ng-template" id="results.html">
-    <widget-list-controls prev-click="prevItem" next-click="nextItem" original-item="item.value" prev-text="Previous Item"
-                          next-text="Next Item"></widget-list-controls>
-    <widget-row>
-        <widget-cell>
-            <!--<h2>{{resultList.title}}</h2>-->
-            <h2>{{resultList.title}}</h2>
-        </widget-cell>
-    </widget-row>
-    <widget-row>
-        <widget-cell>
-            <div class="pHighlight">{{item.value.details}}</div>
-        </widget-cell>
-    </widget-row>
 </script>
