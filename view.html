@@ -10,7 +10,7 @@
         </widget-cell>
     </widget-row>
     <widget-row>
-        <widget-search data="resultList" min-char="1" fields="['buildingName']">
+        <widget-search label="" placeholder="Building Name" data="resultList" min-char="1" fields="['buildingName']">
             <widget-searching>
                 <widget-list list="item in searchResults" show-items="5">
                     <widget-row>
@@ -81,7 +81,7 @@
 		</widget-row>
 		<widget-list list="item in atmList" show-items="5">
 				<widget-row>
-						<widget-cell fill>{{item.name}}</widget-cell>
+						<widget-cell>{{item.name}}&nbsp;&nbsp;&nbsp;</widget-cell>
 						<widget-cell fill>{{item.note}}</widget-cell>
 				</widget-row>
 		</widget-list>
