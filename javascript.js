@@ -30,7 +30,7 @@ angular.module('portalApp')
     var getValues = function (optionType){
       console.dir(optionType);
       $scope.portalHelpers.invokeServerFunction('getLocations', {
-        value: optionType.name
+        value: optionType.table
       }).then(function(result) {
           console.dir(result);
         }
