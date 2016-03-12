@@ -15,11 +15,11 @@ angular.module('portalApp')
 
     $scope.selectData = {};
     $scope.selectData.availableOptions = [
-        {id: '1', name: 'Gender Neutral Washrooms'},
-        {id: '2', name: 'Staplers'},
-        {id: '3', name: 'Printers'},
-        {id: '4', name: 'Scanners'},
-        {id: '5', name: 'Changing Stations'}
+        {id: '1', name: 'Gender Neutral Washrooms', table: 'gNeutralBathrooms'},
+        {id: '2', name: 'Staplers', table: 'staplers'},
+        {id: '3', name: 'Printers', table: 'printers'},
+        {id: '4', name: 'Scanners', table: 'scanners'},
+        {id: '5', name: 'Changing Stations', table: 'changingStations'}
 
     ];
 
@@ -28,6 +28,25 @@ angular.module('portalApp')
       console.dir(newValue);
       console.dir('Old Value');
       console.dir(oldValue);
+      switch(newValue.id) {
+        case 1:
+          console.dir('Gender Neutral');
+          break;
+        case 2:
+          console.dir('Staplers');
+          break;
+        case 3:
+          console.dir('Printers');
+          break;
+        case 4:
+          console.dir('Scanners');
+          break;
+        case 5:
+          console.dir('Changin Stations');
+          break;
+        default:
+          console.dir('Not Selected');
+      }
     });
 
     // initialize the service
@@ -44,6 +63,16 @@ angular.module('portalApp')
 
 	// Your variable declarations
 	var data = {value: null};
+
+  var changingStations = [
+    {id: '1', buildingName: 'OPT', roomNumber: '1032'},
+    {id: '2', buildingName: 'QNC', roomNumber: 'B917'},
+    {id: '3', buildingName: 'QNC', roomNumber: '1917'},
+    {id: '4', buildingName: 'QNC', roomNumber: '2917'},
+    {id: '5', buildingName: 'QNC', roomNumber: '3917'},
+    {id: '6', buildingName: 'QNC', roomNumber: '4917'},
+    {id: '7', buildingName: 'REN', roomNumber: '1824B'}
+  ];
 
 	var init = function ($scope) {
 		if (initialized.value)
