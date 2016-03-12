@@ -59,6 +59,7 @@ angular.module('portalApp')
 	});*/
 
         var distance = function(source_long, source_lat, dest_long, dest_lat) {
+            //TODO make something which uses this
             var dist_hor = pow(source_long - dest_long, 2);
             var dist_vert = pow(source_lat - dest_lat, 2);
             return sqrt(dist_hor + dist_vert);
