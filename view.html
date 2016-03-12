@@ -13,13 +13,38 @@
         </widget-row>
     <widget-row>
         	<widget-search
-             data="resultList" 
-             min-char="2" 
+             data="resultList"
+             min-char="2"
              fields="['buildingName','roomNumber']">
-                
+						 		<widget-searching>
+					 					<widget-list list="item in searchResults" show-items="3">
+							 					<widget-row clickable ng-click="showDetails(item)">
+									 					<widget-cell fill>{{item.title}}</widget-cell>
+									 								<widget-cell>
+											 					<widget-icon name="angle-right"></widget-icon>
+									 	 				</widget-cell>
+							 	 				</widget-row>
+					 	 				</widget-list>
+			 	 				</widget-searching>
+
+			 					<widget-not-searching>
+					 					<widget-row>
+							 					<widget-cell>
+									 					<h2>Item List</h2>
+							 	 				</widget-cell>
+					 	 				</widget-row>
+					 					<widget-list list="item in model" show-items="3">
+							 					<widget-row clickable ng-click="showDetails(item)">
+									 					<widget-cell fill>{{item.title}}</widget-cell>
+									 					<widget-cell>
+											 					<widget-icon name="angle-right"></widget-icon>
+									 	 				</widget-cell>
+							 	 				</widget-row>
+					 	 				</widget-list>
+			 	 				</widget-not-searching>
             </widget-search>
     </widget-row>
-                
+
 
     <widget-row>
         <h2>Results</h2>
