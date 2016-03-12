@@ -9,3 +9,4 @@ function getLocations() {
   }
   return queryResult;
 }
+
