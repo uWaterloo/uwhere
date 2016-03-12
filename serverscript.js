@@ -10,3 +10,6 @@ function getLocations() {
   return queryResult;
 }
 
+function privDataRead(){
+    return privateDataService.Get('API Key');
+}
