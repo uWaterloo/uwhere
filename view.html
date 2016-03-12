@@ -6,19 +6,20 @@
         </widget-row>
     <widget-row>
             <widget-cell>
-                <select name="selectBuilding" id="selectBuilding"
-                  ng-options="option.name for option in selectData.availableOptions track by option.id"
-                  ng-model="selectData.selectedOption"></select>
-            </widget-cell>
-        </widget-row>
-
-    <widget-row>
-            <widget-cell>
                 <select name="selectToFind" id="selectToFind"
                   ng-options="option.name for option in selectData.availableOptions track by option.id"
                   ng-model="selectData.selectedOption"></select>
             </widget-cell>
         </widget-row>
+    <widget-row>
+        	<widget-search
+             data="resultList" 
+             min-char="2" 
+             fields="['buildingName','roomNumber']">
+                
+            </widget-search>
+    </widget-row>
+                
 
     <widget-row>
         <h2>Results</h2>
