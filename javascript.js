@@ -26,7 +26,7 @@ angular.module('portalApp')
         {id: '5', name: 'Changing Stations', table: 'changingStations'}
 
     ];
-	
+
 
 
     $scope.$watch('selectData.selectedOption', function(newValue, oldValue){
@@ -38,7 +38,6 @@ angular.module('portalApp')
         case '1':
           console.dir('Gender Neutral');
           $scope.resultList.title = 'Gener Neutral Washrooms';
-          $scope.portalHelpers.showView('results.html', 2);
           break;
         case '2':
           console.dir('Staplers');
