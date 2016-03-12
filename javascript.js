@@ -74,12 +74,12 @@ angular.module('portalApp')
                             });
                     });
             } else {
-            $scope.portalHelpers.invokeServerFunction('getLocations', {
-                value: optionType.table
-            }).then(function(result) {
-                console.dir(result);
-                $scope.resultList = result;
-            });
+                $scope.portalHelpers.invokeServerFunction('getLocations', {
+                    value: optionType.table
+                }).then(function(result) {
+                    console.dir(result);
+                    $scope.resultList = result;
+                });
             }
         };
 
