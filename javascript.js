@@ -24,8 +24,8 @@ angular.module('portalApp')
         {id: '5', name: 'Changing Stations', table: 'changingStations'}
 
     ];
-    
-	
+
+
 
     $scope.$watch('selectData.selectedOption', function(newValue, oldValue){
       if(!newValue) {
@@ -35,6 +35,7 @@ angular.module('portalApp')
       switch(newValue.id) {
         case '1':
           console.dir('Gender Neutral');
+          $scope.resultList.value.title = 'Gener Neutral Washrooms';
           break;
         case '2':
           console.dir('Staplers');
@@ -67,7 +68,7 @@ angular.module('portalApp')
 
 	// Your variable declarations
 	var data = {value: null};
-    
+
     var gNeutralBathrooms = [
         {id: '1', buildingName: 'E2', roomNumber: '3418A'},
         {id: '2', buildingName: 'ECH', roomNumber: '1113'},
@@ -136,7 +137,7 @@ angular.module('portalApp')
 
 		// Place your init code here:
 		data.value={message:"What do you need to find?"};
-        
+
 	};
 
 
