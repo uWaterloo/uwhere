@@ -10,9 +10,9 @@
         </widget-cell>
     </widget-row>
     <widget-row>
-        <widget-search data="resultList" min-char="2" fields="['buildingName','roomNumber']">
+        <widget-search data="resultList" min-char="1" fields="['buildingName]">
             <widget-searching>
-                <widget-list list="item in resultList" show-items="5">
+                <widget-list list="item in searchResults" show-items="5">
                     <widget-row>
                         <widget-cell fill>{{item.buildingName}}</widget-cell>
                         <widget-cell fill>{{item.roomNumber}}</widget-cell>
