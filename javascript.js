@@ -22,6 +22,8 @@ angular.module('portalApp')
         {id: '5', name: 'Changing Stations'}
         
     ];
+    
+
 
     // initialize the service
     uwhereFactory.init($scope);
@@ -46,6 +48,7 @@ angular.module('portalApp')
 
 		// Place your init code here:
 		data.value={message:"What do you need to find?"};
+        
 	};
 
 
