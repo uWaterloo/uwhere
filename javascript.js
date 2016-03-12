@@ -17,6 +17,7 @@ angular.module('portalApp')
 
     $scope.selectData = {};
     $scope.resultList = {};
+    $scope.printerList = {};
     $scope.resultList.title = 'No Results';
     $scope.selectData.availableOptions = [
         {id: '1', name: 'Gender Neutral Washrooms', table: 'gNeutralBathrooms'},
@@ -26,15 +27,15 @@ angular.module('portalApp')
         {id: '5', name: 'Changing Stations', table: 'changingStations'}
 
     ];
-    
+
     /*$scope.portalHelpers.invokeServerFunction('privDataRead').then(function (apiKey) {
     	console.log('priv read result',apiKey);
-        // http.get FUNCTION 
+        // http.get FUNCTION
 		$http.get('/Develop/GetProxy?url=https://api.uwaterloo.ca/v2/buildings/list.json?key=' + apiKey)
-            .success(function(result) { 
-				// Handle result 
+            .success(function(result) {
+				// Handle result
 				console.dir(result);
-		}); 
+		});
 	});*/
 
     var distance = function(source_long, source_lat, dest_long, dest_lat){
@@ -45,6 +46,19 @@ angular.module('portalApp')
 
     var getValues = function (optionType){
       console.dir(optionType);
+      if (optionType.id === 3) {
+        $scope.portalHelpers.invokeServerFunction('privDataRead')
+        .then(function (apiKey) {
+        	console.log('priv read result',apiKey);
+            // http.get FUNCTION
+    		    $http.get('/Develop/GetProxy?url=https://api.uwaterloo.ca/v2/resources/printers.json?key=' + apiKey)
+            .success(function(result) {
+    				  // Handle result
+    				  console.dir(result);
+              $scope.printerList = result;
+    		    });
+    	  });
+      }
       $scope.portalHelpers.invokeServerFunction('getLocations', {
         value: optionType.table
       }).then(function(result) {
