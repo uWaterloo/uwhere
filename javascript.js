@@ -75,7 +75,7 @@ angular.module('portalApp')
                                 // Handle result
                                 console.dir(result);
                                 $scope.printerList = result.data;
-                            	$scope.portalHelpers.showView('printerView.html', 1);
+                            	$scope.portalHelpers.showView('printerView.html', 2);
                             	$scope.selectData.selectedOption = '';
                             });
                     });
@@ -88,7 +88,7 @@ angular.module('portalApp')
                                 // Handle result
                                 console.dir(result);
                                 $scope.atmList = result.data;
-                            	$scope.portalHelpers.showView('atmView.html', 1);
+                            	$scope.portalHelpers.showView('atmView.html', 2);
                             	$scope.selectData.selectedOption = '';
                             });
                     });
