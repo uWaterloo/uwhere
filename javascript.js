@@ -27,14 +27,18 @@ angular.module('portalApp')
 
     ];
 
-
+    var getValues = function ($scope){
+      console.dir($scope.selectData.selectedOption);
+    };
 
     $scope.$watch('selectData.selectedOption', function(newValue, oldValue){
       if(!newValue) {
         console.dir('Not Yet Selected!');
         return;
       }
-      switch(newValue.id) {
+
+      getValues();
+      /*switch(newValue.id) {
         case '1':
           console.dir('Gender Neutral');
           $scope.resultList.title = 'Gener Neutral Washrooms';
@@ -53,7 +57,7 @@ angular.module('portalApp')
           break;
         default:
           console.error('No ID!');
-      }
+      }*/
     });
 
     // initialize the service
