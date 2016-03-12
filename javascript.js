@@ -27,8 +27,14 @@ angular.module('portalApp')
 
     ];
     
-    $scope.portalHelpers.invokeServerFunction('privDataRead').then(function (result) {
-    	console.log('priv read result',result);
+    $scope.portalHelpers.invokeServerFunction('privDataRead').then(function (apiKey) {
+    	console.log('priv read result',apiKey);
+        // http.get FUNCTION 
+		$http.get('/Develop/GetProxy?url=https://api.uwaterloo.ca/v2/buildings/list.json?key=' + apiKey)
+            .success(function(result) { 
+				// Handle result 
+				console.dir(result);
+		}); 
 	});
 
     var distance = function(source_long, source_lat, dest_long, dest_lat){
