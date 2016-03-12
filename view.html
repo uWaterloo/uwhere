@@ -1,52 +1,43 @@
 <script type="text/ng-template" id="main.html">
-		<widget-row>
-            <widget-cell>
-                <h2>{{data.value.message}}</h2>
-            </widget-cell>
-        </widget-row>
     <widget-row>
-            <widget-cell>
-                <select name="selectToFind" id="selectToFind"
-                  ng-options="option.name for option in selectData.availableOptions track by option.id"
-                  ng-model="selectData.selectedOption"></select>
-            </widget-cell>
-        </widget-row>
+        <widget-cell>
+            <h2>{{data.value.message}}</h2>
+        </widget-cell>
+    </widget-row>
     <widget-row>
-        	<widget-search
-             data="resultList"
-             min-char="2"
-             fields="['buildingName','roomNumber']">
-						 		<widget-searching>
-					 					<widget-list list="item in searchResults" show-items="3">
-							 					<widget-row clickable ng-click="showDetails(item)">
-									 					<widget-cell fill>{{item.title}}</widget-cell>
-									 								<widget-cell>
-											 					<widget-icon name="angle-right"></widget-icon>
-									 	 				</widget-cell>
-							 	 				</widget-row>
-					 	 				</widget-list>
-			 	 				</widget-searching>
+        <widget-cell>
+            <select name="selectToFind" id="selectToFind" ng-options="option.name for option in selectData.availableOptions track by option.id" ng-model="selectData.selectedOption"></select>
+        </widget-cell>
+    </widget-row>
+    <widget-row>
+        <widget-search data="resultList" min-char="2" fields="['buildingName','roomNumber']">
+            <widget-searching>
+                <widget-list list="item in resultList" show-items="5">
+                    <widget-row>
+                        <widget-cell fill>{{item.buildingName}}</widget-cell>
+                        <widget-cell fill>{{item.roomNumber}}</widget-cell>
+                    </widget-row>
+                </widget-list>
+            </widget-searching>
 
-			 					<widget-not-searching>
-					 					<widget-row>
-							 					<widget-cell>
-									 					<h2>Item List</h2>
-							 	 				</widget-cell>
-					 	 				</widget-row>
-					 					<widget-list list="item in model" show-items="3">
-							 					<widget-row clickable ng-click="showDetails(item)">
-									 					<widget-cell fill>{{item.title}}</widget-cell>
-									 					<widget-cell>
-											 					<widget-icon name="angle-right"></widget-icon>
-									 	 				</widget-cell>
-							 	 				</widget-row>
-					 	 				</widget-list>
-			 	 				</widget-not-searching>
-            </widget-search>
+            <widget-not-searching>
+                <widget-row>
+                    <widget-cell>
+                        <h2>Item List</h2>
+                    </widget-cell>
+                </widget-row>
+                <widget-list list="item in resultList" show-items="5">
+                    <widget-row>
+                        <widget-cell fill>{{item.buildingName}}</widget-cell>
+                        <widget-cell fill>{{item.roomNumber}}</widget-cell>
+                    </widget-row>
+                </widget-list>
+            </widget-not-searching>
+        </widget-search>
     </widget-row>
 
 
-    <widget-row>
+    <!--<widget-row>
         <h2>Results</h2>
 
         <widget-list list="item in resultList" show-items="5">
@@ -55,7 +46,7 @@
                 <widget-cell fill>{{item.roomNumber}}</widget-cell>
             </widget-row>
         </widget-list>
-    </widget-row>
+    </widget-row>-->
 
 </script>
 
