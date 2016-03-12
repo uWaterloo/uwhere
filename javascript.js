@@ -1,5 +1,5 @@
 angular.module('portalApp')
-
+//Tomas Sucks
 // Widget controller - runs every time widget is shown
 .controller('uwhereCtrl', ['$scope', '$http', '$q', 'uwhereFactory', function ($scope, $http, $q, uwhereFactory) {
 
@@ -17,11 +17,11 @@ angular.module('portalApp')
 
 	// Show main view in the first column
 	$scope.portalHelpers.showView('main.html', 1);
-	
+
 }])
 // Factory maintains the state of the widget
 .factory('uwhereFactory', ['$http', '$rootScope', '$filter', '$q', function ($http, $rootScope, $filter, $q) {
-		
+
 	var initialized = {value: false};
 
 	// Your variable declarations
@@ -30,7 +30,7 @@ angular.module('portalApp')
 	var init = function ($scope) {
 		if (initialized.value)
 			return;
-		
+
 		initialized.value = true;
 
 		// Place your init code here:
