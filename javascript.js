@@ -23,6 +23,11 @@ angular.module('portalApp')
         
     ];
 
+    $scope.$watch('selectData.selectedOption', function(newValue, oldValue){
+      console.dir('New Value', newValue);
+      console.dir('Old Value', oldValue);
+    });
+
     // initialize the service
     uwhereFactory.init($scope);
 
