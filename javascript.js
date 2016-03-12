@@ -33,6 +33,7 @@ angular.module('portalApp')
         value: optionType.table
       }).then(function(result) {
           console.dir(result);
+          $scope.resultList = result;
         }
       );
     };
