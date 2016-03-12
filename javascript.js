@@ -12,6 +12,12 @@ angular.module('portalApp')
     // Import variables and functions from service
     $scope.data = uwhereFactory.data;
 
+    $scope.selectData = {};
+    $scope.selectData.availableOptions = [
+        {id: '1', name: 'Option A'},
+        {id: '2', name: 'Option B'}
+    ];
+
     // initialize the service
     uwhereFactory.init($scope);
 
@@ -35,7 +41,7 @@ angular.module('portalApp')
 
 		// Place your init code here:
 		data.value={message:"What do you need to find?"};
-	}
+	};
 
 
 	// Expose init(), and variables
